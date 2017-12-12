@@ -1,0 +1,22 @@
+.node circle {
+  fill: #fff; 
+  stroke-width: 3px;
+}
+
+.node circle {
+  stroke: steelblue;
+}
+
+.node .eof {
+  stroke: seagreen;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
