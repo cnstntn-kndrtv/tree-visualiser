@@ -4,21 +4,7 @@ function splitWord(word) {
 }
 
 function getWordsFromDictionary() {
-    let words = ['йцукенгшщзхъфывапролджэёячсмитьбю', 'абвгд', 'бвгд', 'вгд', 'гд', 'абв'];
-
-    let abc = 'йцукенгшщзхъфывапролджэёячсмитьбю';
-    let words2 = [];
-    let words3 = [];
-    for(let i = 0; i < abc.length; i++) {
-        let word = abc.slice(i);
-        words2.push(word);
-        let j = Math.round(Math.random() * 10);
-        for(; j > 0; j--) {
-            let endIndex = Math.round(Math.random() * word.length);
-            words3.push(abc.slice(i, endIndex))
-        }
-    }
-    return words3;
+    return words = ['рука', 'река', 'речь', 'шап', 'шапка', 'шуба', 'азбука'];
 }
 
 class Graph {
@@ -34,7 +20,7 @@ class Graph {
         this.viewConfig = {
             container: '#view',
             width: 5000,
-            height: 3000,
+            height: 1000,
             endOfWordMark: this.endOfWordMark,
         }
     }
@@ -88,11 +74,9 @@ class Graph {
 
 }
 
-
 var words = getWordsFromDictionary();
 var graph = new Graph();
 
-var i = 10;
 function start() {
     for (let i = 0, l = words.length, word; i < l; i++) {
         word = words[i];
@@ -124,43 +108,5 @@ function start() {
 }
 
 start();
-
-let treeData = {
-    letter: "#",
-    childNodes: {
-        '1': {
-            letter: '1',
-            childNodes: {
-                '1-1': {
-                    letter: '1-1',
-                    childNodes: {
-                        '1-1-1': {
-                            letter: '1-1-1'
-                        }
-                    }
-                },
-                '1-2': {
-                    letter: '1-2'
-                }
-            }
-        },
-        '2': {
-            letter: '2',
-            childNodes: {
-                '2-1': {
-                    letter: '2-1'
-                }
-            }
-        }
-    }
-}
-
-let treeData2 = {
-    // letter: "#",
-    childNodes: {
-    }
-}
-
-// let treeView = new TreeView('#view', treeData2);
 
 

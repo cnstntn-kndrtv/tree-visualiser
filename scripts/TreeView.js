@@ -2,30 +2,25 @@
 
 class TreeView {
     constructor(config, data) {
+        this._i = 1;
         this.data = data;
         this.endOfWordMark = config.endOfWordMark;
 
         this.margin = {
-                top: 20,
-                right: 90,
-                bottom: 30,
-                left: 90
-            },
+            top: 20,
+            right: 90,
+            bottom: 30,
+            left: 90
+        }
+        // config.width = config.width || 500;
+        // config.height = config.height || 500;
+        console.log(config);
         this.width = config.width - this.margin.left - this.margin.right,
         this.height = config.height - this.margin.top - this.margin.bottom;
         
         this._previousTransform = 0;
         this._zoom = d3.zoom()
             .scaleExtent([0.3, 2]) // min , max
-            // .translateExtent([ 
-            //     [
-            //         snapTogrid(0 - terrapinViewConfig.width / terrapinViewConfig.minZoom), 
-            //         snapTogrid(0 - terrapinViewConfig.height / terrapinViewConfig.minZoom)
-            //     ], [
-            //         terrapinViewConfig.width * terrapinViewConfig.maxZoom, 
-            //         terrapinViewConfig.height * terrapinViewConfig.maxZoom
-            //     ]
-            // ])
             .on('zoom', () => this._zoomed(this))
             .on('end', () => this._zoomEnded(this));
 
@@ -82,7 +77,7 @@ class TreeView {
         // update nodes
         this.node = this.canvas.selectAll('g.node')
             .data(this.nodes, (d) => {
-                return d.id || (d.id = ++i);
+                return d.id || (d.id = ++this._i);
             });
 
         // Enter any new modes at the parent's previous position.
